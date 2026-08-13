@@ -1,0 +1,8 @@
+=== APPLICATION SOURCE FILES ===
+/app/src/oauth-model.js
+/app/src/server.js
+
+=== REFERENCED ENVIRONMENT VARIABLE NAMES ===
+process.env.HOST
+process.env.PORT
+process.env.TOKEN_TTL_SECONDS

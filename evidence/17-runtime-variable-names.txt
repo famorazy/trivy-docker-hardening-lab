@@ -1,0 +1,22 @@
+=== ORIGINAL CONTAINER VARIABLE NAMES ===
+
+CLIENT_ID=<redacted>
+CLIENT_SECRET=<redacted>
+HOST=<redacted>
+JWT_SECRET=<redacted>
+NODE_ENV=<redacted>
+NODE_VERSION=<redacted>
+PATH=<redacted>
+PORT=<redacted>
+TOKEN_TTL_SECONDS=<redacted>
+YARN_VERSION=<redacted>
+
+=== CANDIDATE VARIABLE NAMES ===
+
+HOST=<redacted>
+NODE_ENV=<redacted>
+NODE_VERSION=<redacted>
+PATH=<redacted>
+PORT=<redacted>
+TOKEN_TTL_SECONDS=<redacted>
+YARN_VERSION=<redacted>

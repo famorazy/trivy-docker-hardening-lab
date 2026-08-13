@@ -1,0 +1,47 @@
+name: securestock-hardening-lab
+
+services:
+  api:
+    image: securestock-oauth-api:1.0.1
+    container_name: securestock-api
+    user: node
+    privileged: false
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges=true
+    pids_limit: 100
+    mem_limit: 256m
+    memswap_limit: 512m
+    cpus: 1.0
+    restart: "no"
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=16m
+    ports:
+      - "127.0.0.1:4001:4000"
+    environment:
+      HOST: 0.0.0.0
+      PORT: "4000"
+      NODE_ENV: production
+      TOKEN_TTL_SECONDS: "300"
+      CLIENT_ID: "${CLIENT_ID:?Set CLIENT_ID in an untracked .env file}"
+      CLIENT_SECRET: "${CLIENT_SECRET:?Set CLIENT_SECRET in an untracked .env file}"
+      JWT_SECRET: "${JWT_SECRET:?Set JWT_SECRET in an untracked .env file}"
+    healthcheck:
+      test:
+        - CMD
+        - node
+        - -e
+        - >-
+          fetch('http://127.0.0.1:4000/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))
+      interval: 30s
+      timeout: 3s
+      start_period: 10s
+      retries: 3
+    logging:
+      driver: local
+      options:
+        max-size: 10m
+        max-file: "3"
+

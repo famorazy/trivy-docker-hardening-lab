@@ -1,0 +1,23 @@
+=== ENFORCEMENT TEST SUMMARY ===
+uid=1000(node) gid=1000(node) groups=1000(node)
+CapEff:	0000000000000000
+NoNewPrivs:	1
+Seccomp:	2
+Seccomp_filters:	1
+PASS: Root filesystem rejected the write.
+PASS: Application user can use the temporary filesystem.
+
+=== DOCKER HOST SECURITY OPTIONS ===
+name=seccomp,profile=builtin
+name=cgroupns
+
+=== APPARMOR KERNEL STATUS ===
+Kernel AppArmor enabled: N
+apparmor module is loaded.
+uid=1000(node) gid=1000(node) groups=1000(node)
+CapEff:	0000000000000000
+NoNewPrivs:	1
+Seccomp:	2
+Seccomp_filters:	1
+PASS: Root filesystem rejected the write.
+PASS: Application user can use the temporary filesystem.

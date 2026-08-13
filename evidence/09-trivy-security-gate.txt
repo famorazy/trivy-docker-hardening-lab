@@ -1,0 +1,4 @@
+=== TRIVY HIGH/CRITICAL SECURITY GATE ===
+Baseline 1.0.0 exit code: 1
+Candidate 1.0.1 exit code: 0
+RESULT: PASS - vulnerable baseline rejected; remediated candidate accepted.

@@ -1,0 +1,13 @@
+Privileged=false
+ReadonlyRootfs=true
+User="node"
+CapAdd=null
+CapDrop=["ALL"]
+SecurityOpt=["no-new-privileges:true"]
+PidsLimit=100
+MemoryBytes=268435456
+NanoCPUs=1000000000
+RestartPolicy={"MaximumRetryCount":0,"Name":"no"}
+NetworkMode="bridge"
+PortBindings={"4000/tcp":[{"HostIp":"127.0.0.1","HostPort":"4001"}]}
+Tmpfs={"/tmp":"rw,noexec,nosuid,size=16m"}

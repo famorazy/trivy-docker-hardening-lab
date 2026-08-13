@@ -1,0 +1,23 @@
+86:app.get('/health', (_request, response) => {
+87-  response.json({
+88-    status: 'ok',
+89-    service: 'securestock-oauth-api',
+90-  })
+--
+93:app.post(
+94-  '/oauth/token',
+95-  tokenLimiter,
+96-  oauth.token(),
+97-)
+--
+99:app.get(
+100-  '/inventory',
+101-  oauth.authenticate({
+102-    scope: ['inventory:read'],
+103-  }),
+--
+109:app.post(
+110-  '/inventory/update',
+111-  oauth.authenticate({
+112-    scope: ['inventory:write'],
+113-  }),

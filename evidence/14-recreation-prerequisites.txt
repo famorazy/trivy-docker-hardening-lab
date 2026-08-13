@@ -1,0 +1,12 @@
+=== RELEVANT ENVIRONMENT OVERRIDES ===
+PORT=4000
+TOKEN_TTL_SECONDS=300
+NODE_ENV=production
+HOST=0.0.0.0
+
+=== STORAGE AND HOST ATTACHMENTS ===
+Mounts=[]
+Binds=null
+VolumesFrom=null
+Devices=[]
+ExtraHosts=null

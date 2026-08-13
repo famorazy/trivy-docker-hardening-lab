@@ -1,0 +1,221 @@
+
+Report Summary
+
+┌──────────────────────────────────────────────────────────────────────────────────┬──────────┬─────────────────┐
+│                                      Target                                      │   Type   │ Vulnerabilities │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ securestock-oauth-api:1.0.1 (alpine 3.24.1)                                      │  alpine  │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/@node-oauth+express-oauth-server@4.2.0_express@5.2.1/nod- │ node-pkg │        0        │
+│ e_modules/@node-oauth/express-oauth-server/package.json                          │          │                 │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/@node-oauth+formats@1.0.0/node_modules/@node-oauth/forma- │ node-pkg │        0        │
+│ ts/package.json                                                                  │          │                 │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/@node-oauth+oauth2-server@5.3.0/node_modules/@node-oauth- │ node-pkg │        0        │
+│ /oauth2-server/package.json                                                      │          │                 │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/accepts@2.0.0/node_modules/accepts/package.json           │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/basic-auth@2.0.1/node_modules/basic-auth/package.json     │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/body-parser@2.3.0/node_modules/body-parser/package.json   │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/buffer-equal-constant-time@1.0.1/node_modules/buffer-equ- │ node-pkg │        0        │
+│ al-constant-time/package.json                                                    │          │                 │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/bytes@3.1.2/node_modules/bytes/package.json               │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/call-bind-apply-helpers@1.0.2/node_modules/call-bind-app- │ node-pkg │        0        │
+│ ly-helpers/package.json                                                          │          │                 │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/call-bound@1.0.4/node_modules/call-bound/package.json     │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/content-disposition@1.1.0/node_modules/content-dispositi- │ node-pkg │        0        │
+│ on/package.json                                                                  │          │                 │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/content-type@1.0.5/node_modules/content-type/package.json │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/content-type@2.0.0/node_modules/content-type/package.json │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/cookie-signature@1.2.2/node_modules/cookie-signature/pac- │ node-pkg │        0        │
+│ kage.json                                                                        │          │                 │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/cookie@0.7.2/node_modules/cookie/package.json             │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/debug@4.4.3/node_modules/debug/package.json               │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/depd@2.0.0/node_modules/depd/package.json                 │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/dotenv@17.4.2/node_modules/dotenv/package.json            │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/dunder-proto@1.0.1/node_modules/dunder-proto/package.json │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/ecdsa-sig-formatter@1.0.11/node_modules/ecdsa-sig-format- │ node-pkg │        0        │
+│ ter/package.json                                                                 │          │                 │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/ee-first@1.1.1/node_modules/ee-first/package.json         │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/encodeurl@2.0.0/node_modules/encodeurl/package.json       │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/es-define-property@1.0.1/node_modules/es-define-property- │ node-pkg │        0        │
+│ /package.json                                                                    │          │                 │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/es-errors@1.3.0/node_modules/es-errors/package.json       │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/es-object-atoms@1.1.2/node_modules/es-object-atoms/packa- │ node-pkg │        0        │
+│ ge.json                                                                          │          │                 │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/escape-html@1.0.3/node_modules/escape-html/package.json   │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/etag@1.8.1/node_modules/etag/package.json                 │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/express-rate-limit@8.6.2_express@5.2.1/node_modules/expr- │ node-pkg │        0        │
+│ ess-rate-limit/package.json                                                      │          │                 │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/express@5.2.1/node_modules/express/package.json           │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/finalhandler@2.1.1/node_modules/finalhandler/package.json │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/forwarded@0.2.0/node_modules/forwarded/package.json       │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/fresh@2.0.0/node_modules/fresh/package.json               │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/function-bind@1.1.2/node_modules/function-bind/package.j- │ node-pkg │        0        │
+│ son                                                                              │          │                 │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/get-intrinsic@1.3.0/node_modules/get-intrinsic/package.j- │ node-pkg │        0        │
+│ son                                                                              │          │                 │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/get-proto@1.0.1/node_modules/get-proto/package.json       │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/gopd@1.2.0/node_modules/gopd/package.json                 │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/has-symbols@1.1.0/node_modules/has-symbols/package.json   │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/hasown@2.0.4/node_modules/hasown/package.json             │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/helmet@8.3.0/node_modules/helmet/package.json             │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/http-errors@2.0.1/node_modules/http-errors/package.json   │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/iconv-lite@0.7.3/node_modules/iconv-lite/package.json     │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/inherits@2.0.4/node_modules/inherits/package.json         │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/ip-address@10.5.0/node_modules/ip-address/package.json    │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/ipaddr.js@1.9.1/node_modules/ipaddr.js/package.json       │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/is-promise@4.0.0/node_modules/is-promise/package.json     │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/jsonwebtoken@9.0.3/node_modules/jsonwebtoken/package.json │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/jwa@2.0.1/node_modules/jwa/package.json                   │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/jws@4.0.1/node_modules/jws/package.json                   │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/lodash.includes@4.3.0/node_modules/lodash.includes/packa- │ node-pkg │        0        │
+│ ge.json                                                                          │          │                 │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/lodash.isboolean@3.0.3/node_modules/lodash.isboolean/pac- │ node-pkg │        0        │
+│ kage.json                                                                        │          │                 │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/lodash.isinteger@4.0.4/node_modules/lodash.isinteger/pac- │ node-pkg │        0        │
+│ kage.json                                                                        │          │                 │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/lodash.isnumber@3.0.3/node_modules/lodash.isnumber/packa- │ node-pkg │        0        │
+│ ge.json                                                                          │          │                 │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/lodash.isplainobject@4.0.6/node_modules/lodash.isplainob- │ node-pkg │        0        │
+│ ject/package.json                                                                │          │                 │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/lodash.isstring@4.0.1/node_modules/lodash.isstring/packa- │ node-pkg │        0        │
+│ ge.json                                                                          │          │                 │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/lodash.once@4.1.1/node_modules/lodash.once/package.json   │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/math-intrinsics@1.1.0/node_modules/math-intrinsics/packa- │ node-pkg │        0        │
+│ ge.json                                                                          │          │                 │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/media-typer@1.1.1/node_modules/media-typer/package.json   │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/merge-descriptors@2.0.0/node_modules/merge-descriptors/p- │ node-pkg │        0        │
+│ ackage.json                                                                      │          │                 │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/mime-db@1.54.0/node_modules/mime-db/package.json          │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/mime-types@3.0.2/node_modules/mime-types/package.json     │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/ms@2.1.3/node_modules/ms/package.json                     │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/negotiator@1.0.0/node_modules/negotiator/package.json     │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/object-inspect@1.13.4/node_modules/object-inspect/packag- │ node-pkg │        0        │
+│ e.json                                                                           │          │                 │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/on-finished@2.4.1/node_modules/on-finished/package.json   │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/once@1.4.0/node_modules/once/package.json                 │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/parseurl@1.3.3/node_modules/parseurl/package.json         │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/path-to-regexp@8.4.2/node_modules/path-to-regexp/package- │ node-pkg │        0        │
+│ .json                                                                            │          │                 │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/proxy-addr@2.0.7/node_modules/proxy-addr/package.json     │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/qs@6.15.3/node_modules/qs/package.json                    │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/range-parser@1.3.0/node_modules/range-parser/package.json │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/raw-body@3.0.2/node_modules/raw-body/package.json         │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/router@2.2.0/node_modules/router/package.json             │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/safe-buffer@5.1.2/node_modules/safe-buffer/package.json   │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/safe-buffer@5.2.1/node_modules/safe-buffer/package.json   │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/safer-buffer@2.1.2/node_modules/safer-buffer/package.json │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/semver@7.8.5/node_modules/semver/package.json             │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/send@1.2.1/node_modules/send/package.json                 │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/serve-static@2.2.1/node_modules/serve-static/package.json │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/setprototypeof@1.2.0/node_modules/setprototypeof/package- │ node-pkg │        0        │
+│ .json                                                                            │          │                 │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/side-channel-list@1.0.1/node_modules/side-channel-list/p- │ node-pkg │        0        │
+│ ackage.json                                                                      │          │                 │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/side-channel-map@1.0.1/node_modules/side-channel-map/pac- │ node-pkg │        0        │
+│ kage.json                                                                        │          │                 │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/side-channel-weakmap@1.0.2/node_modules/side-channel-wea- │ node-pkg │        0        │
+│ kmap/package.json                                                                │          │                 │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/side-channel@1.1.1/node_modules/side-channel/package.json │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/statuses@2.0.2/node_modules/statuses/package.json         │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/toidentifier@1.0.1/node_modules/toidentifier/package.json │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/type-is@2.0.1/node_modules/type-is/package.json           │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/type-is@2.1.0/node_modules/type-is/package.json           │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/unpipe@1.0.0/node_modules/unpipe/package.json             │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/vary@1.1.2/node_modules/vary/package.json                 │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/node_modules/.pnpm/wrappy@1.0.2/node_modules/wrappy/package.json             │ node-pkg │        0        │
+├──────────────────────────────────────────────────────────────────────────────────┼──────────┼─────────────────┤
+│ app/package.json                                                                 │ node-pkg │        0        │
+└──────────────────────────────────────────────────────────────────────────────────┴──────────┴─────────────────┘
+Legend:
+- '-': Not scanned
+- '0': Clean (no security findings detected)
+

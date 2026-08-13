@@ -1,0 +1,6 @@
+ComposeProject=
+ComposeService=
+ComposeConfig=
+ComposeWorkingDir=
+LogDriver="json-file"
+LogOptions={}

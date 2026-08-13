@@ -1,0 +1,8 @@
+=== PARALLEL HARDENED CANDIDATE ===
+Health=unhealthy
+LogDriver="local"
+LogOptions={"max-file":"3","max-size":"10m"}
+ReadonlyRootfs=true
+CapDrop=["ALL"]
+SecurityOpt=["no-new-privileges=true"]
+
