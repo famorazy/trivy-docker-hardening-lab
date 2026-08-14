@@ -1,0 +1,60 @@
+=== CYCLONEDX DEPENDENCY AND LICENSE ANALYSIS ===
+
+IMAGE VERSION: 1.0.0
+Components: 256
+Dependency records: 257
+Dependency edges: 271
+Direct root dependencies: 238
+Components with declared licences: 254
+Components without declared licences: 2
+Most common declared licence labels:
+  MIT: 130
+  ISC: 78
+  BlueOak-1.0.0: 11
+  Apache-2.0: 11
+  GPL-2.0-only: 8
+  BSD-2-Clause: 8
+  GPL-2.0-or-later: 3
+  BSD-3-Clause: 3
+  LGPL-2.1-or-later: 2
+  Zlib: 1
+Trivy detected licence records: 259
+Trivy severity classification:
+  HIGH: 13
+  LOW: 234
+  MEDIUM: 1
+  UNKNOWN: 11
+Trivy licence categories:
+  notice: 233
+  reciprocal: 1
+  restricted: 13
+  unencumbered: 1
+  unknown: 11
+
+IMAGE VERSION: 1.0.1
+Components: 110
+Dependency records: 111
+Dependency edges: 125
+Direct root dependencies: 92
+Components with declared licences: 109
+Components without declared licences: 1
+Most common declared licence labels:
+  MIT: 86
+  GPL-2.0-only: 8
+  ISC: 6
+  GPL-2.0-or-later: 3
+  Apache-2.0: 3
+  LGPL-2.1-or-later: 2
+  BSD-3-Clause: 2
+  BSD-2-Clause: 2
+  Zlib: 1
+  MPL-2.0: 1
+Trivy detected licence records: 114
+Trivy severity classification:
+  HIGH: 13
+  LOW: 100
+  MEDIUM: 1
+Trivy licence categories:
+  notice: 100
+  reciprocal: 1
+  restricted: 13

@@ -1,0 +1,27 @@
+=== CYCLONEDX COMPONENT COMPARISON ===
+
+Baseline components: 256
+Candidate components: 110
+Components removed: 146
+Component reduction: 57.0%
+
+FILE: sbom/securestock-1.0.0.cdx.json
+Relevant package versions present:
+brace-expansion@5.0.6
+ip-address@10.2.0
+ip-address@10.5.0
+tar@7.5.16
+undici@6.26.0
+
+Previously affected npm-tooling versions:
+brace-expansion@5.0.6
+ip-address@10.2.0
+tar@7.5.16
+undici@6.26.0
+
+FILE: sbom/securestock-1.0.1.cdx.json
+Relevant package versions present:
+ip-address@10.5.0
+
+Previously affected npm-tooling versions:
+None detected

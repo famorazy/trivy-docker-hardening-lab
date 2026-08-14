@@ -1,0 +1,31 @@
+=== CYCLONEDX SBOM VALIDATION ===
+
+FILE: sbom/securestock-1.0.0.cdx.json
+JSON and CycloneDX structure: PASS
+BOM format: CycloneDX
+Specification version: 1.7
+Root component: securestock-oauth-api:1.0.0
+Root component type: container
+Components: 256
+Dependency records: 257
+Embedded vulnerabilities: 0
+Component types:
+  library: 255
+  operating-system: 1
+
+FILE: sbom/securestock-1.0.1.cdx.json
+JSON and CycloneDX structure: PASS
+BOM format: CycloneDX
+Specification version: 1.7
+Root component: securestock-oauth-api:1.0.1
+Root component type: container
+Components: 110
+Dependency records: 111
+Embedded vulnerabilities: 0
+Component types:
+  library: 109
+  operating-system: 1
+
+=== SHA-256 FILE INTEGRITY HASHES ===
+a2afe1c54ea1f5568a7f6db19352c2a4c442dcf57cba8ab62fcdfa5409256955  sbom/securestock-1.0.0.cdx.json
+ba9f07a06f92521ed94954a2c10021e6e1b71baf150d68b3a16499e3743938df  sbom/securestock-1.0.1.cdx.json

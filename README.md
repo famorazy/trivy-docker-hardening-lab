@@ -151,3 +151,10 @@ See [evidence/README.md](evidence/README.md) for the evidence map.
 - [Docker seccomp profiles](https://docs.docker.com/engine/security/seccomp/)
 - [Docker AppArmor profiles](https://docs.docker.com/engine/security/apparmor/)
 - [Docker local logging driver](https://docs.docker.com/engine/logging/drivers/local/)
+
+## CycloneDX SBOM Analysis
+
+This project includes portable CycloneDX 1.7 SBOMs, component and dependency comparisons, vulnerability-gate results, integrity hashes and licence analysis.
+
+- [Read the SBOM supply-chain report](SBOM_REPORT.md)
+- [Review the generated SBOM artifacts](sbom/)
