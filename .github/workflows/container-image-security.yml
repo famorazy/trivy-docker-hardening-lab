@@ -1,0 +1,258 @@
+name: Container Image Security
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+    tags:
+      - 'v*.*.*'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: container-security-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository_owner }}/securestock-oauth-api
+  LOCAL_IMAGE: securestock-oauth-api:ci-validation
+
+jobs:
+  validate:
+    name: Build, scan and validate image
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Install Trivy
+        uses: aquasecurity/setup-trivy@81e514348e19b6112ce2a7e3ecbafe19c1e1f567 # v0.3.1
+        with:
+          version: v0.73.0
+          cache: true
+
+      - name: Validate source and Dockerfile
+        run: |
+          trivy config --skip-version-check --exit-code 1 app/Dockerfile
+          trivy fs --quiet --skip-version-check --scanners secret --exit-code 1 app
+          bash -n scripts/validate-hardening.sh
+
+      - name: Build local validation image
+        uses: docker/build-push-action@f2a1d5e99d037542a71f64918e516c093c6f3fc4
+        with:
+          context: ./app
+          file: ./app/Dockerfile
+          load: true
+          push: false
+          tags: ${{ env.LOCAL_IMAGE }}
+          provenance: false
+
+      - name: Validate JavaScript syntax
+        run: |
+          docker run --rm --entrypoint node "${LOCAL_IMAGE}" --check src/server.js
+          docker run --rm --entrypoint node "${LOCAL_IMAGE}" --check src/oauth-model.js
+
+      - name: Scan built image
+        run: |
+          trivy image --skip-version-check \
+            --scanners vuln \
+            --severity HIGH,CRITICAL \
+            --ignore-unfixed \
+            --exit-code 1 \
+            "${LOCAL_IMAGE}"
+
+      - name: Start hardened validation container
+        run: |
+          docker run --detach \
+            --name securestock-ci-validation \
+            --user node \
+            --read-only \
+            --cap-drop ALL \
+            --security-opt no-new-privileges=true \
+            --pids-limit 100 \
+            --memory 256m \
+            --memory-swap 512m \
+            --cpus 1.0 \
+            --tmpfs /tmp:rw,noexec,nosuid,size=16m \
+            --log-driver local \
+            --log-opt max-size=10m \
+            --log-opt max-file=3 \
+            --publish 127.0.0.1:4003:4000 \
+            --env HOST=0.0.0.0 \
+            --env PORT=4000 \
+            --env NODE_ENV=production \
+            --env TOKEN_TTL_SECONDS=300 \
+            --env CLIENT_ID=ci-validation-client \
+            --env CLIENT_SECRET="$(openssl rand -hex 24)" \
+            --env JWT_SECRET="$(openssl rand -hex 32)" \
+            "${LOCAL_IMAGE}"
+
+      - name: Wait for healthy container
+        shell: bash
+        run: |
+          for attempt in $(seq 1 30); do
+            health="$(docker inspect securestock-ci-validation --format '{{.State.Health.Status}}')"
+
+            if [[ "${health}" == "healthy" ]]; then
+              echo "Container became healthy."
+              exit 0
+            fi
+
+            if [[ "${health}" == "unhealthy" ]]; then
+              docker logs securestock-ci-validation
+              exit 1
+            fi
+
+            sleep 1
+          done
+
+          docker logs securestock-ci-validation
+          echo "Container did not become healthy within 30 seconds."
+          exit 1
+
+      - name: Validate runtime hardening and authorization
+        env:
+          CONTAINER_NAME: securestock-ci-validation
+          HOST_PORT: '4003'
+        run: bash scripts/validate-hardening.sh
+
+      - name: Validate resource and temporary-filesystem controls
+        shell: bash
+        run: |
+          state="$(docker inspect securestock-ci-validation --format \
+            'PidsLimit={{.HostConfig.PidsLimit}} Memory={{.HostConfig.Memory}} MemorySwap={{.HostConfig.MemorySwap}} NanoCPUs={{.HostConfig.NanoCpus}} Tmpfs={{json .HostConfig.Tmpfs}}')"
+
+          echo "${state}"
+          grep -Fq 'PidsLimit=100' <<<"${state}"
+          grep -Fq 'Memory=268435456' <<<"${state}"
+          grep -Fq 'MemorySwap=536870912' <<<"${state}"
+          grep -Fq 'NanoCPUs=1000000000' <<<"${state}"
+          grep -Fq '"/tmp":"rw,noexec,nosuid,size=16m"' <<<"${state}"
+
+          docker exec securestock-ci-validation sh -c 'touch /tmp/ci-write-test && rm /tmp/ci-write-test'
+          echo "Resource limits and writable temporary filesystem validated."
+
+      - name: Remove validation container
+        if: always()
+        run: docker rm --force securestock-ci-validation >/dev/null 2>&1 || true
+
+  publish:
+    name: Publish and keylessly sign release
+    needs: validate
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Validate release source and version
+        shell: bash
+        run: |
+          git fetch --no-tags origin main
+          git merge-base --is-ancestor "${GITHUB_SHA}" origin/main
+
+          tag_version="${GITHUB_REF_NAME#v}"
+          package_version="$(jq --raw-output '.version' app/package.json)"
+
+          if [[ "${tag_version}" != "${package_version}" ]]; then
+            echo "Release tag ${tag_version} does not match package version ${package_version}."
+            exit 1
+          fi
+
+          echo "Release source and version validated."
+
+      - name: Install Trivy
+        uses: aquasecurity/setup-trivy@81e514348e19b6112ce2a7e3ecbafe19c1e1f567 # v0.3.1
+        with:
+          version: v0.73.0
+          cache: true
+
+      - name: Install Cosign
+        uses: sigstore/cosign-installer@6f9f17788090df1f26f669e9d70d6ae9567deba6 # v4.1.2
+        with:
+          cosign-release: v3.1.3
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate release metadata
+        id: meta
+        uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=semver,pattern={{version}}
+
+      - name: Build and publish release image
+        id: push
+        uses: docker/build-push-action@f2a1d5e99d037542a71f64918e516c093c6f3fc4
+        with:
+          context: ./app
+          file: ./app/Dockerfile
+          platforms: linux/amd64
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          provenance: mode=max
+          sbom: true
+
+      - name: Scan published image by digest
+        env:
+          IMAGE_DIGEST: ${{ steps.push.outputs.digest }}
+        run: |
+          trivy image --skip-version-check \
+            --scanners vuln \
+            --severity HIGH,CRITICAL \
+            --ignore-unfixed \
+            --exit-code 1 \
+            "${REGISTRY}/${IMAGE_NAME}@${IMAGE_DIGEST}"
+
+      - name: Keylessly sign image digest
+        env:
+          IMAGE_DIGEST: ${{ steps.push.outputs.digest }}
+        run: cosign sign --yes "${REGISTRY}/${IMAGE_NAME}@${IMAGE_DIGEST}"
+
+      - name: Verify keyless image signature
+        env:
+          IMAGE_DIGEST: ${{ steps.push.outputs.digest }}
+        run: |
+          expected_identity="https://github.com/${GITHUB_REPOSITORY}/.github/workflows/container-image-security.yml@${GITHUB_REF}"
+
+          cosign verify \
+            --certificate-identity "${expected_identity}" \
+            --certificate-oidc-issuer 'https://token.actions.githubusercontent.com' \
+            "${REGISTRY}/${IMAGE_NAME}@${IMAGE_DIGEST}"
+
+      - name: Publish release summary
+        env:
+          IMAGE_DIGEST: ${{ steps.push.outputs.digest }}
+        run: |
+          {
+            echo '## Signed container release'
+            echo
+            echo "- Image: \`${REGISTRY}/${IMAGE_NAME}\`"
+            echo "- Tag: \`${GITHUB_REF_NAME}\`"
+            echo "- Digest: \`${IMAGE_DIGEST}\`"
+            echo '- Vulnerability gate: passed'
+            echo '- Keyless Cosign verification: passed'
+          } >> "${GITHUB_STEP_SUMMARY}"

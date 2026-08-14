@@ -1,0 +1,30 @@
+{
+  "name": "securestock-oauth-api",
+  "version": "1.0.1",
+  "description": "Hardened OAuth 2.0 API for container and software supply-chain security validation",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "node --check src/server.js && node --check src/oauth-model.js",
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "11.21.0",
+      "onFail": "download"
+    }
+  },
+  "type": "module",
+  "dependencies": {
+    "@node-oauth/express-oauth-server": "^4.2.0",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.6.2",
+    "helmet": "^8.3.0",
+    "jsonwebtoken": "^9.0.3"
+  }
+}
