@@ -1,6 +1,6 @@
 {
   "name": "securestock-oauth-api",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Hardened OAuth 2.0 API for container and software supply-chain security validation",
   "main": "src/server.js",
   "scripts": {
