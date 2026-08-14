@@ -1,0 +1,8 @@
+
+Verification for ghcr.io/famorazy/securestock-oauth-api@sha256:6e3badc31852fbe256ae8b50330127ecfb1bda42f3642f9495af69723b5be93c --
+The following checks were performed on each of these signatures:
+  - The cosign claims were validated
+  - Existence of the claims in the transparency log was verified offline
+  - The code-signing certificate was verified using trusted certificate authority certificates
+
+[{"critical":{"identity":{"docker-reference":"ghcr.io/famorazy/securestock-oauth-api@sha256:6e3badc31852fbe256ae8b50330127ecfb1bda42f3642f9495af69723b5be93c"},"image":{"docker-manifest-digest":"sha256:6e3badc31852fbe256ae8b50330127ecfb1bda42f3642f9495af69723b5be93c"},"type":"https://sigstore.dev/cosign/sign/v1"},"optional":{}}]
