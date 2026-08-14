@@ -2,7 +2,10 @@ name: securestock-hardening-lab
 
 services:
   api:
-    image: securestock-oauth-api:1.0.1
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    image: ghcr.io/famorazy/securestock-oauth-api:1.0.1
     container_name: securestock-api
     user: node
     privileged: false

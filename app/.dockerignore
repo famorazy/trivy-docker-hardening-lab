@@ -1,0 +1,11 @@
+.git
+.github
+node_modules
+.env
+.env.*
+!.env.example
+evidence
+coverage
+*.log
+README.md
+SECURITY_REPORT.md
