@@ -1,0 +1,9 @@
+=== COSIGN BUNDLE SUMMARY ===
+Media type: application/vnd.dev.sigstore.bundle.v0.3+json
+Message signature present: true
+Transparency log entries: 1
+RFC3161 timestamps: 1
+
+=== SIGNING ARTIFACT SHA-256 HASHES ===
+4391528be7c3acae6fc7e030252c6495ec2d4f81e90b70b7818678f9ef8477a0  signing/cosign.pub
+d79357e54b2d77130a317887fb80bdcae7f1b6c1d345a2e724e3b0d55c0e7d56  signing/securestock-1.0.1-sbom.sigstore.json

@@ -5,3 +5,6 @@
 .idea/
 .vscode/
 
+
+# Never commit private signing keys
+*.key

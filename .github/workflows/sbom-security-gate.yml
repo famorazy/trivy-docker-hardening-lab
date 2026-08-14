@@ -5,6 +5,8 @@ on:
     branches: [main]
     paths:
       - sbom/**
+      - signing/**
+      - scripts/verify-sbom-signature.sh
       - .github/workflows/sbom-security-gate.yml
   pull_request:
     branches: [main]
@@ -35,11 +37,22 @@ jobs:
           version: v0.73.0
           cache: true
 
+      - name: Install Cosign
+        uses: sigstore/cosign-installer@6f9f17788090df1f26f669e9d70d6ae9567deba6 # v4.1.2
+        with:
+          cosign-release: v3.1.3
+
+      - name: Display Cosign version
+        run: cosign version
+
       - name: Display Trivy version
         run: trivy --version
 
       - name: Verify SBOM integrity
         run: sha256sum -c sbom/SHA256SUMS
+
+      - name: Verify remediated SBOM signature
+        run: ./scripts/verify-sbom-signature.sh
 
       - name: Scan repository for secrets
         run: trivy fs --scanners secret --exit-code 1 .
