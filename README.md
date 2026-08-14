@@ -170,3 +170,10 @@ GitHub Actions and branch rules enforce SBOM integrity, secret scanning and High
 Cosign protects the remediated CycloneDX SBOM against unauthorized modification, with verification enforced through GitHub Actions.
 
 - [Cosign SBOM Signing and Verification Report](COSIGN_SBOM_SIGNING_REPORT.md)
+
+## Signed Container Release
+
+GitHub Actions publishes the public `v1.0.2` GHCR image with Buildx SBOM and provenance attestations, Trivy vulnerability gating, and keyless Cosign signing and verification.
+
+- [Signed Container Release Report](CONTAINER_RELEASE_REPORT.md)
+- [Public SecureStock container package](https://github.com/users/famorazy/packages/container/package/securestock-oauth-api)
