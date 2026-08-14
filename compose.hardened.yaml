@@ -5,7 +5,7 @@ services:
     build:
       context: ./app
       dockerfile: Dockerfile
-    image: ghcr.io/famorazy/securestock-oauth-api:1.0.1
+    image: ghcr.io/famorazy/securestock-oauth-api:1.0.2
     container_name: securestock-api
     user: node
     privileged: false
