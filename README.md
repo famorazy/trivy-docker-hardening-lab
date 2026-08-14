@@ -164,3 +164,9 @@ This project includes portable CycloneDX 1.7 SBOMs, component and dependency com
 GitHub Actions and branch rules enforce SBOM integrity, secret scanning and High/Critical vulnerability checks on every pull request.
 
 - [Automated SBOM Security Gate and Branch Protection Report](CI_SECURITY_GATE_REPORT.md)
+
+## Cryptographic SBOM Verification
+
+Cosign protects the remediated CycloneDX SBOM against unauthorized modification, with verification enforced through GitHub Actions.
+
+- [Cosign SBOM Signing and Verification Report](COSIGN_SBOM_SIGNING_REPORT.md)
