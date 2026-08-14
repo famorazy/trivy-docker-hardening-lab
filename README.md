@@ -158,3 +158,9 @@ This project includes portable CycloneDX 1.7 SBOMs, component and dependency com
 
 - [Read the SBOM supply-chain report](SBOM_REPORT.md)
 - [Review the generated SBOM artifacts](sbom/)
+
+## CI/CD Security Automation
+
+GitHub Actions and branch rules enforce SBOM integrity, secret scanning and High/Critical vulnerability checks on every pull request.
+
+- [Automated SBOM Security Gate and Branch Protection Report](CI_SECURITY_GATE_REPORT.md)
