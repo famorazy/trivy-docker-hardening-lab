@@ -1,0 +1,67 @@
+name: SBOM Security Gate
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - sbom/**
+      - .github/workflows/sbom-security-gate.yml
+  pull_request:
+    branches: [main]
+    paths:
+      - sbom/**
+      - .github/workflows/sbom-security-gate.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sbom-security-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  security-gate:
+    name: Verify candidate SBOM
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Install Trivy
+        uses: aquasecurity/setup-trivy@81e514348e19b6112ce2a7e3ecbafe19c1e1f567 # v0.3.1
+        with:
+          version: v0.73.0
+          cache: true
+
+      - name: Display Trivy version
+        run: trivy --version
+
+      - name: Verify SBOM integrity
+        run: sha256sum -c sbom/SHA256SUMS
+
+      - name: Scan repository for secrets
+        run: trivy fs --scanners secret --exit-code 1 .
+
+      - name: Reject baseline SBOM as negative control
+        shell: bash
+        run: |
+          set +e
+          trivy sbom --quiet --scanners vuln --severity HIGH,CRITICAL --ignore-unfixed --exit-code 1 sbom/securestock-1.0.0.cdx.json
+          result=$?
+          set -e
+
+          if [ "$result" -ne 1 ]; then
+            echo "Expected baseline exit code 1 but received $result"
+            exit 1
+          fi
+
+          echo "Baseline correctly rejected."
+
+      - name: Accept remediated SBOM
+        run: |
+          trivy sbom --scanners vuln --severity HIGH,CRITICAL --ignore-unfixed --exit-code 1 sbom/securestock-1.0.1.cdx.json
